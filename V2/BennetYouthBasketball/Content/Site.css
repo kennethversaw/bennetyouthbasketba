@@ -1,0 +1,129 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse {
+        height: auto;
+        border-top: 0;
+        box-shadow: none;
+        max-height: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+        .navbar-collapse.collapse {
+            display: block !important;
+            width: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+        }
+
+        .navbar-collapse.in {
+            overflow-x: visible;
+        }
+
+    .navbar {
+        max-width: 330px;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .navbar-nav,
+    .navbar-nav > li,
+    .navbar-left,
+    .navbar-right,
+    .navbar-header {
+        float: none !important;
+    }
+
+        .navbar-right .dropdown-menu {
+            left: 0;
+            right: auto;
+        }
+
+    .navbar-collapse .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+    }
+}
+
+li.menuLink {
+    background-color: red;
+    font-weight: 600;
+}
+
+li.active {
+    width: 108%;
+    margin-left: -4%;
+}
+
+.navbar-default .navbar-nav > li.active > a.active {
+    color: blue;
+        background-color: lightgray;
+          border-bottom: .2em groove gray;
+}
+
+.navbar-default .navbar-nav > li.menuLink > a {
+    color: white;
+    border-bottom:.3em groove coral;
+}
+
+div.content-header {
+    background-color: lightgray;
+    margin-top: -.1em;
+    padding: .5em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+    border-bottom: .2em groove gray;
+}
+
+h1.content-header {
+    color: blue;
+    font-weight: 900;
+    margin-left:1em;
+
+}
+
+/*div.information-background{
+        background-color: lightgray;
+    margin-top: -.1em;
+    padding: .5em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+    border-bottom: .2em groove gray;
+}*/
+/*div.content-space{
+    background-color: lightgray;
+}*/
+div.information{
+    background-color:whitesmoke;
+    padding:1em;
+
+}
+h3.information-header{
+    font-weight: 400;
+    color:red;
+    margin-left: .5em;
+
+}

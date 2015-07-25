@@ -2,36 +2,61 @@
 <html ng-app="speakerSignUp">
 <head>
     <title></title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
-<body>
-    <div ng-controller="speakerCtrl">
-        <div>First Name: <input ng-model="FirstName" /></div>
-        <div>Last Name: <input ng-model="LastName" /></div>
-        <br />
-        <button class="btn" ng-click="Change()">Change</button>
-        <br />
+<body>    
+        <div ng-controller="speakerCtrl">
+     
+        <h1>Thank you for your interest in speaking at Nebraska Code Camp!</h1>
+                <br/>
+                <h2>Please fill out the form below:</h2>
+                <hr />
+                <form ng-submit="createSpeaker()">
+                    <h3><strong>Name</strong></h3>
 
-        <ul>
-            <li ng-repeat="task in tasks">
-                <input type="checkbox" ng-model="task.done"
-                       ng-click="updateTask(task)">
-                <span>{{ task.text }}</span>
-                <a ng-click="deleteTask(task)">delete</a>
-            </li>
-        </ul>
-        <form ng-submit="createTask()">
-            <input type="text" ng-model="newTask.text"
-                   placeholder="add new task here">
-            <input type="submit" value="create">
-        </form>
-
-
+                    <input type="text" ng-model="newSpeaker.FirstName"
+                           placeholder="First Name">
+                    <input type="text" ng-model="newSpeaker.LastName"
+                           placeholder="Last Name">
+                    <input type="text" ng-model="newSpeaker.Email"
+                           placeholder="Email">
+                    <input type="submit" class="btn btn-primary" value="create">
+                </form>
+            <br />
+            <br />
+        <input type="text" ng-model="nameFilter" placeholder="Search..." />
+            <br />
+            <div class="span6">
+                <table class="table table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 80px;">First name</th>
+                            <th style="min-width: 80px;">Last name</th>
+                            <th style="width:20px;"> </th>
+                            <th style="width:20px;"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="myspeaker in speakers">
+                            <td>{{ myspeaker.FirstName }}</td>
+                            <td>{{ myspeaker.LastName }}</td>
+                            <!--<td><table><tr ng-repeat="mytopic in myspeaker.topics"><td>{{mytopic.Title}}</td></tr></table></td>-->
+                             <td><a ng-click="deleteSpeaker(myspeaker)" class="btn btn-small btn-danger">delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>       
+            </div>
+      
     </div>
 
+    <script src="http://code.jquery.com/jquery-git2.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>    
-    <!--<script src="services/mobileServices.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.20/angular-route.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
-   <script src="controllers/speakerController.js"></script>
+    <script src="ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="controllers/speakerController.js"></script>
+    <script src="controllers/modalController.js"></script>
 </body>
 </html>

@@ -1,37 +1,33 @@
-﻿myApp.controller('speakerCtrl', function ($scope, Task) {
-    $scope.FirstName = 'Ken';
-    $scope.LastName = 'Versaw';
-    $scope.tasks = Task.query();
-    $scope.newTask = new Task();
-
-    $scope.Change = function Change() {
-      window.alert();
-       
-    }
-    // saving a new task
-    $scope.createTask = function () {
+﻿
+myApp.controller('speakerCtrl', function ($scope, Speaker) {
+    //$scope.speakers = Speaker.query();
+    
+    $scope.speakers = Speaker.query();
+    $scope.newSpeaker = new Speaker();
+    $scope.nameFilter = null;
+    $scope.createSpeaker = function () {
         // call the service
-        $scope.newTask.$save(function () {
+        $scope.newSpeaker.$save(function () {
             // when saved, reload the list and recreate a new task
-            $scope.tasks = Task.query();
-            $scope.newTask = new Task();
+            $scope.speakers= Speaker.query();
+            $scope.newSpeaker = new Speaker();
         });
     }
 
     // removing a task
-    $scope.deleteTask = function (task) {
+    $scope.deleteSpeaker= function (speaker) {
         // call the service
-        task.$delete(function () {
+       speaker.$delete(function () {
             // when deleted, reload the list
-            $scope.tasks = Task.query();
+           $scope.speakers = Speaker.query();
         });
     }
 
     // saving an existing task
-    $scope.updateTask = function (task) {
+    $scope.updateSpeaker = function (speaker) {
         // call the service
-        task.$update();
-    }
-
-
+        speaker.$update();
+        $scope.speakers = Speaker.query();
+    }   
+    
 });

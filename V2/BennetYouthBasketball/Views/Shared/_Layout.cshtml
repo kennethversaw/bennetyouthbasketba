@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bennet Youth Basketball</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="sidebar-nav">
+                    <div class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="visible-xs navbar-brand">Sidebar menu</span>
+                        </div>
+                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active menuLink">
+                                    @Ajax.ActionLink("Home",
+                                                      "Home",
+                                                      null,
+                                                      new AjaxOptions
+                                                     {
+                                                         UpdateTargetId = "ajaxContent",
+                                                         InsertionMode = InsertionMode.Replace
+                                                     },
+                                                     new { @class = "active" }
+                                                     )
+                                </li>
+                                <li class="menuLink">
+                                    @Ajax.ActionLink(linkText: "Register",
+                                                     actionName: "Register",
+                                                     ajaxOptions: new AjaxOptions
+                                                     {
+                                                         UpdateTargetId = "ajaxContent",
+                                                         InsertionMode = InsertionMode.Replace
+                                                     })
+                                </li>
+                                <li class="menuLink">
+                                    @Ajax.ActionLink(linkText: "Teams",
+                                                     actionName: "Teams",
+                                                     ajaxOptions: new AjaxOptions
+                                                     {
+                                                         UpdateTargetId = "ajaxContent",
+                                                         InsertionMode = InsertionMode.Replace
+                                                     })
+                                </li>
+                                <li class="menuLink">
+                                    @Ajax.ActionLink(linkText: "Schedule",
+                                                     actionName: "Schedule",
+                                                     ajaxOptions: new AjaxOptions
+                                                     {
+                                                         UpdateTargetId = "ajaxContent",
+                                                         InsertionMode = InsertionMode.Replace
+                                                     })
+                                </li>
+                                <li class="menuLink">
+                                    @Ajax.ActionLink(linkText: "Contact",
+                                                     actionName: "Contact",
+                                                     ajaxOptions: new AjaxOptions
+                                                     {
+                                                         UpdateTargetId = "ajaxContent",
+                                                         InsertionMode = InsertionMode.Replace
+                                                     })
+                                </li>
+
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="content-space">
+                    <div class="row">
+                        <div class="content-header"><h1 class="content-header">Bennet Youth Basketball</h1></div>
+                    </div>
+                    <div>
+                        @RenderBody()
+
+                    </div>                   
+                </div>
+                <div class="row">
+                    <hr/>
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - Bennet Youth Basketball</p>
+                    </footer>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/Project/Index.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

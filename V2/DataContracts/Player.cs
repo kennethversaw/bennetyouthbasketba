@@ -24,7 +24,7 @@ namespace DataContracts
         public string LastName{get;set;}
 
         [DataMember]
-        public int Grade { get; set; }
+        public int? Grade { get; set; }
 
         [DataMember]
         public Gender Gender { get; set; }
@@ -39,20 +39,20 @@ namespace DataContracts
         public string JeresySize { get; set; }
 
         [DataMember]
-        public int NumberRequest { get; set; }
+        public int? NumberRequest { get; set; }
 
         [DataMember]
-        public int Buttons { get; set; }
+        public int? Buttons { get; set; }
 
         [DataMember]
-        public int GuardianId { get; set; }
+        public int? GuardianId { get; set; }
 
         [DataMember]
         [ForeignKey("GuardianId")]
         public virtual Guardian Guardian { get; set; }
 
         [DataMember]
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
 
         [DataMember]
         [ForeignKey("TeamId")]

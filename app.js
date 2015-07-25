@@ -1,7 +1,8 @@
 ﻿
 
-var myApp = angular.module('speakerSignUp', ['ngResource']).service('Task', function ($resource) {
-    return $resource('https://posts.azure-mobile.net/Tables/TodoItem/:taskId', { taskId: '@id' },
+var myApp = angular.module('speakerSignUp', ['ngResource', 'ui.bootstrap', 'ngRoute']).service('Speaker', function ($resource) {
+ 
+    return $resource('https://posts.azure-mobile.net/Tables/Speaker/:speakerId', { speakerId: '@id' },
         {
             'update': { method: 'PATCH' }
         });
