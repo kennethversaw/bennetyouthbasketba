@@ -12,18 +12,14 @@ namespace DataAccessors
         public void AddPlayer(Player player, string connectionString)
         {
 
-            try
-            {
-                using (BennetBasketballDb db = new BennetBasketballDb(connectionString))
-                {
-                    db.Players.Add(player);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
 
+            using (BennetBasketballDb db = new BennetBasketballDb(connectionString))
+            {
+                db.Players.Add(player);
+                db.SaveChanges();
             }
+
+
 
         }
 

@@ -1,8 +1,57 @@
-﻿<div class="information"></div>
-<div>
-    <h3 class="information-header">Consent Form</h3>
-    <div class="information">I understand and recognize by filling out this form I am providing consent for my child to participate in the 2014-2015 Bennet Basketball Program. I do hereby resolve, release and agree to hold harmless Bennet Basketball Program, Bennet Elementary Public School, District OR1, coaches, managers, referees, and any volunteers from liability claims in case of accidents to my child while participating in this program. I do hereby give permission for coaches, sponsors, and assistant coaches to arrange for transportation for my child, as they deem necessary, for the purpose of medical treatment, injury, or illness while under their supervision.</div>
-</div>
-    
+﻿@model BennetYouthBasketball.ViewModels.RegistrationViewModel
+
+@using (Html.BeginForm(actionName: "Registration", controllerName: "Home"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.guardian.FirstName)
+    @Html.HiddenFor(x => x.guardian.LastName)
+    @Html.HiddenFor(x => x.guardian.Email)
+    @Html.HiddenFor(x => x.guardian.PhoneNumber)
+    <div class="information"></div>
+    <div>
+        <h3 class="information-header">Consent Form</h3>
+        <div class="information">I understand and recognize by filling out this form I am providing consent for my child to participate in the 2014-2015 Bennet Basketball Program. I do hereby resolve, release and agree to hold harmless Bennet Basketball Program, Bennet Elementary Public School, District OR1, coaches, managers, referees, and any volunteers from liability claims in case of accidents to my child while participating in this program. I do hereby give permission for coaches, sponsors, and assistant coaches to arrange for transportation for my child, as they deem necessary, for the purpose of medical treatment, injury, or illness while under their supervision.</div>
+    </div>
+
+    <h3 class="information-header">Guardian Information</h3>
+    <div class="information">
+        <div class="form-group">
+            <label>First Name:</label> <input id="guardianFirstName" data-bind="value: guardian.FirstName" /><br />
+            <label>Last Name:</label> <input id="guardianLastName" data-bind="value: guardian.LastName" /><br />
+            <label>Phone Number:</label> <input id="guardianPhoneNumber" data-bind="value: guardian.PhoneNumber" /><br />
+            <label>Email:</label> <input id="guardianEmail" data-bind="value: guardian.Email" /><br />
+        </div>
 
 
+    </div>
+
+    <h3 class="information-header">Player Information</h3>
+    <div class="information">
+        <div class="form-group">
+            <label>First Name:</label> <input id="playerFirstName" /><br />
+            <label>Last Name:</label> <input id="playerLastName" /><br />
+            <label>Grade:</label> <input id="playerGrade"/><br />
+            <label>Gender:</label> <input id="playerGender" /><br />
+            <label>Medical Conditions:</label> <input id="playerMedicalConditions" /><br />
+            <label>Yes I need a jeresy:</label> <input type="checkbox" id="playerNeedJeresy" /><br />
+            <label>Jeresy Size:</label> <input id="playerJeresySize" /><br />
+            <label>Number Request:</label> <input id="playerNumberRequest" /><br />
+            <label>Buttons:</label> <input id="playerButtons" /><br />
+
+        </div>
+        <div class="form-group">
+            <a href='#' data-bind='click: addRegistration '>Add Registration</a>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save Changes" class="btn btn-primary UpdateVariablesBeforeSending" />
+        <input type="submit" value="Cancel" class="btn btn-default" />
+    </div>
+}
+
+
+<script>
+    $(SetRegistrationViewModel());
+</script>
