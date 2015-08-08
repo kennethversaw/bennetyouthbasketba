@@ -7,7 +7,7 @@ namespace BennetYouthBasketball.ViewModels
 {
     public class RegistrationViewModel
     {
-        public ICollection<Player> player { get; set; }
+        public ICollection<Player> players { get; set; }
         public Guardian guardian { get; set; }
     }
 }

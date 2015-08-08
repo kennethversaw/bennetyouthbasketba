@@ -22,7 +22,7 @@ namespace BennetYouthBasketball.Controllers
 
         public ActionResult Register()
         {
-            RegistrationViewModel rvm = new RegistrationViewModel { guardian = new Guardian(), player = new List<Player>() };
+            RegistrationViewModel rvm = new RegistrationViewModel { guardian = new Guardian(), players= new List<Player>() };
             return PartialView("_Register", rvm);
         }
 
